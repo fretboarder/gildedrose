@@ -65,16 +65,16 @@ def test_sulfuras(updater, attr: ItemAttr, result: ItemAttr) -> None:
     assert g.items[0].sell_in == result.sell_in
     assert g.items[0].quality == result.quality
 
-# @pt.mark.parametrize("attr,result", [
-#     (ItemAttr(10, 10), ItemAttr(9, 8)), # regulare degrading
-#     (ItemAttr(10, 0), ItemAttr(9, 0)),  # limit 0
-#     (ItemAttr(0, 10), ItemAttr(-1, 6)), # double degrading
-#     (ItemAttr(0, 1), ItemAttr(-1, 0))   # double degrading with limit
-# ])
-# def test_conjured(updater, attr: ItemAttr, result):
-#     g = updater(Item("Conjured Mana Cake", *attr))
-#     assert g.items[0].sell_in == result.sell_in
-#     assert g.items[0].quality == result.quality
+@pt.mark.parametrize("attr,result", [
+    (ItemAttr(10, 10), ItemAttr(9, 8)), # regulare degrading
+    (ItemAttr(10, 0), ItemAttr(9, 0)),  # limit 0
+    (ItemAttr(0, 10), ItemAttr(-1, 6)), # double degrading
+    (ItemAttr(0, 1), ItemAttr(-1, 0))   # double degrading with limit
+])
+def test_conjured(updater, attr: ItemAttr, result):
+    g = updater(Item("Conjured Mana Cake", *attr))
+    assert g.items[0].sell_in == result.sell_in
+    assert g.items[0].quality == result.quality
 
 if __name__ == '__main__':
     pt.main(["-v", "--cov=."])
