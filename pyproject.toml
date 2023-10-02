@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "gildedrose"
+version = "0.1.0"
+description = "Gilded rose refactoring Kat"
+authors = ["fretboarder"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+texttest = "^4.3.0"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
